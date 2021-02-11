@@ -11,13 +11,22 @@
     <depends>org.jetbrains.android</depends>
 
     <actions>
-        <action id="enableActionId"
+        <action id="showActionId"
                 class="ShowLayoutBoundsAction"
                 text="Show Layout Bounds"
                 description="Show layout bounds">
 
             <add-to-group group-id="ToolsMenu"/>
             <keyboard-shortcut keymap="$default" first-keystroke="shift meta alt B"/>
+        </action>
+
+        <action id="hideActionId"
+                class="HideLayoutBoundsAction"
+                text="Hide Layout Bounds"
+                description="Hide layout bounds">
+
+            <add-to-group group-id="ToolsMenu"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta alt H"/>
         </action>
     </actions>
 </idea-plugin>

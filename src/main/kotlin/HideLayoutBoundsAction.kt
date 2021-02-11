@@ -1,9 +1,9 @@
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 
-class ShowLayoutBoundsAction : AnAction() {
+class HideLayoutBoundsAction : AnAction() {
 
     override fun actionPerformed(event: AnActionEvent) {
-        event.project?.let { LayoutBoundsCommand(true).execute(it) }
+        event.project?.let { LayoutBoundsCommand(false).execute(it) }
     }
 }
