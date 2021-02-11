@@ -1,22 +1,22 @@
 <idea-plugin>
     <id>org.example.layoutBoundsPlugin</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <name>Toggle Layout Bounds</name>
+    <vendor email="anything@yourcompany.com">Paulina Talks Android</vendor>
 
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
+    <description>Plugin to enable/disable layout bounds option on connected Android devices</description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
-    </extensions>
-
     <actions>
-        <!-- Add your actions here -->
+        <action id="enableActionId"
+                class="EnableLayoutBoundsAction"
+                text="Enable Layout Bounds"
+                description="Enable layout bounds">
+
+            <add-to-group group-id="ToolsMenu"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta alt K"/>
+        </action>
     </actions>
 </idea-plugin>
