@@ -12,12 +12,12 @@
 
     <actions>
         <action id="enableActionId"
-                class="EnableLayoutBoundsAction"
+                class="ShowLayoutBoundsAction"
                 text="Show Layout Bounds"
-                description="Enable layout bounds">
+                description="Show layout bounds">
 
             <add-to-group group-id="ToolsMenu"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="shift meta alt K"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta alt B"/>
         </action>
     </actions>
 </idea-plugin>
