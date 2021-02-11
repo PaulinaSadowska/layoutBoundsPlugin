@@ -11,19 +11,22 @@ repositories {
     mavenCentral()
 }
 
-if (!hasProperty('StudioCompilePath')) {
-    throw new GradleException("No StudioCompilePath value was set, please create gradle.properties file")
-}
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-// See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version '2020.1.4'
-    intellij.localPath = StudioCompilePath
+    plugins 'android'
+}
+
+runIde {
+    ideDirectory "/Applications/Android Studio.app/Contents"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
 }
 
 patchPluginXml {
