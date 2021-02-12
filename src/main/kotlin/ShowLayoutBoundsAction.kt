@@ -12,22 +12,14 @@ import org.jetbrains.android.sdk.AndroidSdkUtils
 class ShowLayoutBoundsAction : AnAction() {
 
     override fun actionPerformed(event: AnActionEvent) {
-        event.project?.getNotEmptyDevices()?.forEach { device ->
-            device.showLayoutBounds()
-        } ?: run {
+        val devices = event.project?.let { AndroidSdkUtils.getDebugBridge(it)?.devices }
+
+        if (devices.isNullOrEmpty()) {
             event.project?.showNotification("no device connected")
+        } else {
+            event.project?.showNotification("${devices.size} device(s) connected")
         }
     }
-}
-
-fun Project.getNotEmptyDevices(): Array<IDevice>? =
-    AndroidSdkUtils.getDebugBridge(this)?.devices?.takeIf { it.isNotEmpty() }
-
-fun IDevice.showLayoutBounds() {
-    executeShellCommand(
-        "setprop debug.layout true ; service call activity 1599295570",
-        NullOutputReceiver()
-    )
 }
 
 fun Project.showNotification(message: String) {
